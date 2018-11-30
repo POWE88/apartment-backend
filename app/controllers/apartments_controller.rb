@@ -12,6 +12,12 @@ class ApartmentsController < ApplicationController
     render json: @apartment
   end
 
+  def show_user_apartments
+    @user = User.find(params[:user_id])
+    @apartments = @user.apartments
+    render json: @apartments
+  end
+
   # POST /apartments
   def create
     @apartment = Apartment.new(apartment_params)
@@ -42,6 +48,7 @@ class ApartmentsController < ApplicationController
     def set_apartment
       @apartment = Apartment.find(params[:id])
     end
+
 
     # Only allow a trusted parameter "white list" through.
     def apartment_params
