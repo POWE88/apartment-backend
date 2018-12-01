@@ -52,6 +52,6 @@ class ApartmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def apartment_params
-      params.require(:apartment).permit(:street,:city,:zipcode,:state,:country,:managername,:managerphone,:managerhours)
+      params.require(:apartment).permit(:street,:city,:zipcode,:state,:country,:managername,:managerphone,:managerhours, :user_id)
     end
 end
